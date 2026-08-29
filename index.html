@@ -17,6 +17,33 @@
 
                                     <button class="login">Login</button>
 
+                                    <div id="login-panel" class="login-panel">
+                                        <div class="login-box">
+                                            <button id="close-login" class="close-login">×</button>
+
+                                                <h2>Welcome Back</h2>
+                                                    <p>Log in to your Kydno Kore account.</p>
+
+                                                        <input
+                                                              type="email"
+                                                                    id="login-email"
+                                                                          placeholder="Email"
+                                                                              >
+
+                                                                                  <input
+                                                                                        type="password"
+                                                                                              id="login-password"
+                                                                                                    placeholder="Password"
+                                                                                                        >
+
+                                                                                                            <button id="login-submit" class="login-submit">
+                                                                                                                  Login
+                                                                                                                      </button>
+
+                                                                                                                          <p id="login-message"></p>
+                                                                                                                            </div>
+                                                                                                                            </div>
+
                                     <div class="balance">
                                         🪙 <span>1,000</span>
                                         </div>
@@ -323,7 +350,24 @@
 
                                                                                                                                                                                                                                                          signupButton.textContent = "Account Created";
                                                                                                                                                                                                                                                          ;
-                                                                                                                                                                                                </script>
+                                                                                                                                                                                             const loginButton = document.querySelector(".login");
+                                                                                                                                                                                             const loginPanel = document.querySelector("#login-panel");
+                                                                                                                                                                                             const closeLogin = document.querySelector("#close-login");
+
+                                                                                                                                                                                             loginButton.addEventListener("click", () => {
+                                                                                                                                                                                               loginPanel.classList.add("open");
+                                                                                                                                                                                               });
+
+                                                                                                                                                                                               closeLogin.addEventListener("click", () => {
+                                                                                                                                                                                                 loginPanel.classList.remove("open");
+                                                                                                                                                                                                 });
+
+                                                                                                                                                                                                 loginPanel.addEventListener("click", (event) => {
+                                                                                                                                                                                                   if (event.target === loginPanel) {
+                                                                                                                                                                                                       loginPanel.classList.remove("open");
+                                                                                                                                                                                                         }
+                                                                                                                                                                                                         });
+                                                                                                                                                                                             </script>
           <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
             </body>
             </html>
