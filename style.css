@@ -1,0 +1,288 @@
+* {
+      box-sizing: border-box;
+        margin: 0;
+          padding: 0;
+          }
+
+          body {
+            font-family: Arial, sans-serif;
+              background: #070b12;
+                color: white;
+                  min-height: 100vh;
+                  }
+
+                  header {
+                    height: 70px;
+                      display: flex;
+                        align-items: center;
+                          justify-content: space-between;
+                            padding: 0 35px;
+                              background: #0b111b;
+                                border-bottom: 1px solid #1c2938;
+                                }
+
+                                .logo {
+                                  font-size: 25px;
+                                    font-weight: bold;
+                                      color: #55aaff;
+                                      }
+
+                                      nav a {
+                                        color: #9aa8b8;
+                                          text-decoration: none;
+                                            margin-left: 25px;
+                                            }
+
+                                            nav a:hover {
+                                              color: white;
+                                              }
+
+                                              .hero {
+                                                text-align: center;
+                                                  padding: 100px 20px;
+                                                    background: radial-gradient(
+                                                        circle at center,
+                                                            #12304d 0%,
+                                                                #070b12 65%
+                                                                  );
+                                                                  }
+
+                                                                  .hero h1 {
+                                                                    font-size: 55px;
+                                                                      margin-bottom: 15px;
+                                                                      }
+
+                                                                      .hero h1 span {
+                                                                        color: #55aaff;
+                                                                        }
+
+                                                                        .hero p {
+                                                                          color: #9aa8b8;
+                                                                            font-size: 18px;
+                                                                              margin-bottom: 30px;
+                                                                              }
+
+                                                                              .button {
+                                                                                display: inline-block;
+                                                                                  padding: 14px 28px;
+                                                                                    background: #2388ff;
+                                                                                      color: white;
+                                                                                        text-decoration: none;
+                                                                                          border-radius: 10px;
+                                                                                            font-weight: bold;
+                                                                                            }
+
+                                                                                            .section {
+                                                                                              max-width: 1100px;
+                                                                                                margin: auto;
+                                                                                                  padding: 60px 30px;
+                                                                                                  }
+
+                                                                                                  .section h2 {
+                                                                                                    text-align: center;
+                                                                                                      font-size: 30px;
+                                                                                                        margin-bottom: 30px;
+                                                                                                        }
+
+                                                                                                        .cards {
+                                                                                                          display: grid;
+                                                                                                            grid-template-columns: repeat(4, 1fr);
+                                                                                                              gap: 20px;
+                                                                                                              }
+
+                                                                                                              .card {
+                                                                                                                background: #0d1520;
+                                                                                                                  border: 1px solid #1c2b3c;
+                                                                                                                    border-radius: 14px;
+                                                                                                                      padding: 25px;
+                                                                                                                      }
+
+                                                                                                                      .card h3 {
+                                                                                                                        color: #55aaff;
+                                                                                                                          margin-bottom: 12px;
+                                                                                                                          }
+
+                                                                                                                          .card p {
+                                                                                                                            color: #8f9eae;
+                                                                                                                              line-height: 1.5;
+                                                                                                                              }
+
+                                                                                                                              .item-icon {
+                                                                                                                                font-size: 42px;
+                                                                                                                                  margin-bottom: 15px;
+                                                                                                                                  }
+
+                                                                                                                                  .rarity {
+                                                                                                                                    display: inline-block;
+                                                                                                                                      margin-top: 15px;
+                                                                                                                                        padding: 5px 10px;
+                                                                                                                                          border-radius: 6px;
+                                                                                                                                            background: #17283a;
+                                                                                                                                              color: #55aaff;
+                                                                                                                                                font-size: 12px;
+                                                                                                                                                  font-weight: bold;
+                                                                                                                                                  }
+
+                                                                                                                                                  footer {
+                                                                                                                                                    text-align: center;
+                                                                                                                                                      padding: 30px;
+                                                                                                                                                        color: #647486;
+                                                                                                                                                          border-top: 1px solid #1c2938;
+                                                                                                                                                          }
+
+                                                                                                                                                          @media (max-width: 800px) {
+                                                                                                                                                            nav {
+                                                                                                                                                                display: none;
+                                                                                                                                                                  }
+
+                                                                                                                                                                    .cards {
+                                                                                                                                                                        grid-template-columns: 1fr 1fr;
+                                                                                                                                                                          }
+
+                                                                                                                                                                            .hero h1 {
+                                                                                                                                                                                font-size: 42px;
+                                                                                                                                                                                  }
+                                                                                                                                                                                  }
+
+
+                                                                                                                                                                                  header {
+                                                                                                                                                                                      height: 70px;
+                                                                                                                                                                                        display: flex;
+                                                                                                                                                                                          align-items: center;
+                                                                                                                                                                                            justify-content: space-between;
+                                                                                                                                                                                              padding: 0 30px;
+                                                                                                                                                                                                background: #0b111b;
+                                                                                                                                                                                                  border-bottom: 1px solid #1c2938;
+                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                  .logo {
+                                                                                                                                                                                                    font-size: 25px;
+                                                                                                                                                                                                      font-weight: bold;
+                                                                                                                                                                                                        color: #55aaff;
+                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                        nav a {
+                                                                                                                                                                                                          color: #9aa8b8;
+                                                                                                                                                                                                            text-decoration: none;
+                                                                                                                                                                                                              margin-left: 25px;
+                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                              nav a:hover {
+                                                                                                                                                                                                                color: white;
+                                                                                                                                                                                                                }
+                                                                                                                                                                                  
+
+
+                                                                                                                                                                                  .hero {
+                                                                                                                                                                                      text-align: center;
+                                                                                                                                                                                        padding: 90px 20px;
+                                                                                                                                                                                          background: radial-gradient(
+                                                                                                                                                                                              circle at center,
+                                                                                                                                                                                                  #12304d 0%,
+                                                                                                                                                                                                      #070b12 65%
+                                                                                                                                                                                                        );
+                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                        .hero h1 {
+                                                                                                                                                                                                          font-size: 55px;
+                                                                                                                                                                                                            margin-bottom: 15px;
+                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                            .hero h1 span {
+                                                                                                                                                                                                              color: #55aaff;
+                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                              .hero p {
+                                                                                                                                                                                                                color: #9aa8b8;
+                                                                                                                                                                                                                  font-size: 18px;
+                                                                                                                                                                                                                    margin-bottom: 30px;
+                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                    .button {
+                                                                                                                                                                                                                      display: inline-block;
+                                                                                                                                                                                                                        padding: 14px 28px;
+                                                                                                                                                                                                                          background: #2388ff;
+                                                                                                                                                                                                                            color: white;
+                                                                                                                                                                                                                              text-decoration: none;
+                                                                                                                                                                                                                                border-radius: 10px;
+                                                                                                                                                                                                                                  font-weight: bold;
+                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                  .button:hover {
+                                                                                                                                                                                                                                    background: #4da3ff;
+                                                                                                                                                                                                                                    }
+
+
+                                                                                                                                                                                                                                    .section {
+                                                                                                                                                                                                                                        max-width: 1100px;
+                                                                                                                                                                                                                                          margin: auto;
+                                                                                                                                                                                                                                            padding: 60px 30px;
+                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                            .section h2 {
+                                                                                                                                                                                                                                              text-align: center;
+                                                                                                                                                                                                                                                font-size: 30px;
+                                                                                                                                                                                                                                                  margin-bottom: 30px;
+                                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                                  .cards {
+                                                                                                                                                                                                                                                    display: grid;
+                                                                                                                                                                                                                                                      grid-template-columns: repeat(4, 1fr);
+                                                                                                                                                                                                                                                        gap: 20px;
+                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                        .card {
+                                                                                                                                                                                                                                                          background: #0d1520;
+                                                                                                                                                                                                                                                            border: 1px solid #1c2b3c;
+                                                                                                                                                                                                                                                              border-radius: 14px;
+                                                                                                                                                                                                                                                                padding: 25px;
+                                                                                                                                                                                                                                                                  transition: 0.2s;
+                                                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                                                  .card:hover {
+                                                                                                                                                                                                                                                                    border-color: #2388ff;
+                                                                                                                                                                                                                                                                      transform: translateY(-4px);
+                                                                                                                                                                                                                                                                      }
+
+                                                                                                                                                                                                                                                                      .card h3 {
+                                                                                                                                                                                                                                                                        color: #55aaff;
+                                                                                                                                                                                                                                                                          margin-bottom: 12px;
+                                                                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                                                                          .card p {
+                                                                                                                                                                                                                                                                            color: #8f9eae;
+                                                                                                                                                                                                                                                                              line-height: 1.5;
+                                                                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                                                                              .item-icon {
+                                                                                                                                                                                                                                                                                font-size: 42px;
+                                                                                                                                                                                                                                                                                  margin-bottom: 15px;
+                                                                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                                                                  .rarity {
+                                                                                                                                                                                                                                                                                    display: inline-block;
+                                                                                                                                                                                                                                                                                      margin-top: 15px;
+                                                                                                                                                                                                                                                                                        padding: 5px 10px;
+                                                                                                                                                                                                                                                                                          border-radius: 6px;
+                                                                                                                                                                                                                                                                                            background: #17283a;
+                                                                                                                                                                                                                                                                                              color: #55aaff;
+                                                                                                                                                                                                                                                                                                font-size: 12px;
+                                                                                                                                                                                                                                                                                                  font-weight: bold;
+                                                                                                                                                                                                                                                                                                  }
+
+
+                                                                                                                                                                                                                                                                                                  @media (max-width: 800px) {
+                                                                                                                                                                                                                                                                                                      nav {
+                                                                                                                                                                                                                                                                                                          display: none;
+                                                                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                                                                              .cards {
+                                                                                                                                                                                                                                                                                                                  grid-template-columns: 1fr 1fr;
+                                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                                      .hero h1 {
+                                                                                                                                                                                                                                                                                                                          font-size: 42px;
+                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                    
