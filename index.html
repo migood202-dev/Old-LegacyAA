@@ -25,20 +25,50 @@
 
                                     <section class="hero">
                                         <div class="hero-content">
-                                            <p class="hero-label">THE NEXT GENERATION OF TRADING</p>
+                                            <p class="hero-label">THE NEXT GENERATION OF FLIPPING</p>
 
                                                 <h1>
-                                                      Trade <span>Smarter.</span>
-                                                          </h1>
+                                                    Kydno <span>Kore</span>
+                                                    </h1>
 
                                                               <p class="hero-description">
-                                                                    Discover items, track values, and find better trades.
-                                                                        </p>
+                                                                  Flip, compete, and discover a new generation of items.
+                                                                  </p>
 
                                                                             <div class="hero-buttons">
-                                                                                  <a href="#" class="button">Explore Items</a>
-                                                                                        <a href="#" class="secondary-button">View Trades</a>
+                                                                                  <a href="#" class="button">Join Flips</a>
+                                                                                        <a href="#" class="secondary-button">View History</a>
                                                                                             </div>
+                                                                                            <section class="account-section">
+                                                                                                <h2>Create Your Kydno Kore Account</h2>
+
+                                                                                                  <div class="account-panel">
+                                                                                                      <input
+                                                                                                            type="email"
+                                                                                                                  id="email"
+                                                                                                                        placeholder="Email"
+                                                                                                                            >
+
+                                                                                                                            <input
+                                                                                                                              type="text"
+                                                                                                                                id="username"
+                                                                                                                                  placeholder="Choose your Kydno Kore name"
+                                                                                                                                    maxlength="20"
+                                                                                                                                    >
+
+                                                                                                                                <input
+                                                                                                                                      type="password"
+                                                                                                                                            id="password"
+                                                                                                                                                  placeholder="Password"
+                                                                                                                                                      >
+
+                                                                                                                                                          <button id="signup-button">
+                                                                                                                                                                Create Account
+                                                                                                                                                                    </button>
+
+                                                                                                                                                                        <p id="account-message"></p>
+                                                                                                                                                                          </div>
+                                                                                                                                                                          </section>
                                                                                               </div>
                                                                                               </section>
 
@@ -143,13 +173,13 @@
                                                                                                                                                   <div class="stat">
                                                                                                                                                       <span>📦</span>
                                                                                                                                                           <strong>0</strong>
-                                                                                                                                                              <p>ACTIVE TRADES</p>
+                                                                                                                                                              <p>ACTIVE FLIPS</p>
                                                                                                                                                                 </div>
 
                                                                                                                                                                   <div class="stat">
                                                                                                                                                                       <span>⚡</span>
                                                                                                                                                                           <strong>0</strong>
-                                                                                                                                                                              <p>TRADES TODAY</p>
+                                                                                                                                                                              <p>FLIPS TODAY</p>
                                                                                                                                                                                 </div>
                                                                                                                                                                                 </section>
                                                                                                                                 <footer>
@@ -158,6 +188,13 @@
 
 
                                                                                                                                   <script>
+                                                                                                                                    const SUPABASE_URL = "https://hnavfaxqrygqlcfldubg.supabase.co";
+                                                                                                                                    const SUPABASE_KEY = "sb_publishable_zzbxRMNlAN5GriNXG2OYVQ_qAEN2lIN";
+                                                                                                                                    const supabaseClient = window.supabase.createClient(
+                                                                                                                                        SUPABASE_URL,
+                                                                                                                                          SUPABASE_KEY
+                                                                                                                                          );
+                                                                                                                                    
                                                                                                                                     const sideButtons = document.querySelectorAll(".side-btn");
 
                                                                                                                                     sideButtons.forEach(button => {
@@ -211,6 +248,82 @@
                                                                                                                                                                                                                                               valueInput.value = "";
                                                                                                                                                                                                                                                 }, 1500);
                                                                                                                                                                                                                                                 });
+                                                                                                                                                                                             const signupButton = document.querySelector("#signup-button");
+                                                                                                                                                                                             const emailInput = document.querySelector("#email");
+                                                                                                                                                                                             const usernameInput = document.querySelector("#username");
+                                                                                                                                                                                             const passwordInput = document.querySelector("#password");
+                                                                                                                                                                                             const accountMessage = document.querySelector("#account-message");
+
+                                                                                                                                                                                             signupButton.addEventListener("click", async () => {
+                                                                                                                                                                                               const email = emailInput.value.trim();
+                                                                                                                                                                                                 const username = usernameInput.value.trim();
+                                                                                                                                                                                                   const password = passwordInput.value;
+
+                                                                                                                                                                                                     if (!email || !username || !password) {
+                                                                                                                                                                                                         accountMessage.textContent =
+                                                                                                                                                                                                               "Enter an email, username, and password.";
+                                                                                                                                                                                                                   return;
+                                                                                                                                                                                                                     }
+
+                                                                                                                                                                                                                       if (!/^[a-zA-Z0-9_]{3,20}$/.test(username)) {
+                                                                                                                                                                                                                           accountMessage.textContent =
+                                                                                                                                                                                                                                 "Username must be 3–20 characters and use only letters, numbers, or _.";
+                                                                                                                                                                                                                                     return;
+                                                                                                                                                                                                                                       }
+
+                                                                                                                                                                                                                                         signupButton.disabled = true;
+                                                                                                                                                                                                                                           signupButton.textContent = "Creating...";
+
+                                                                                                                                                                                                                                             const { data, error } = await supabaseClient.auth.signUp({
+                                                                                                                                                                                                                                                 email: email,
+                                                                                                                                                                                                                                                     password: password
+                                                                                                                                                                                                                                                       });
+
+                                                                                                                                                                                                                                                         if (error) {
+                                                                                                                                                                                                                                                             accountMessage.textContent = error.message;
+                                                                                                                                                                                                                                                                 signupButton.disabled = false;
+                                                                                                                                                                                                                                                                     signupButton.textContent = "Create Account";
+                                                                                                                                                                                                                                                                         return;
+                                                                                                                                                                                                                                                                           }
+
+                                                                                                                                                                                                                                                                             if (!data.user) {
+                                                                                                                                                                                                                                                                                 accountMessage.textContent =
+                                                                                                                                                                                                                                                                                       "Account created. Check your email to continue.";
+                                                                                                                                                                                                                                                                                           signupButton.disabled = false;
+                                                                                                                                                                                                                                                                                               signupButton.textContent = "Create Account";
+                                                                                                                                                                                                                                                                                                   return;
+                                                                                                                                                                                                                                                                                                     }
+
+                                                                                                                                                                                                                                                                                                       const { error: profileError } = await supabaseClient
+                                                                                                                                                                                                                                                                                                           .from("profiles")
+                                                                                                                                                                                                                                                                                                               .insert({
+                                                                                                                                                                                                                                                                                                                     id: data.user.id,
+                                                                                                                                                                                                                                                                                                                           username: username
+                                                                                                                                                                                                                                                                                                                               });
+
+                                                                                                                                                                                                                                                                                                                                 if (profileError) {
+                                                                                                                                                                                                                                                                                                                                     accountMessage.textContent =
+                                                                                                                                                                                                                                                                                                                                           profileError.code === "23505"
+                                                                                                                                                                                                                                                                                                                                                   ? "That username is already taken."
+                                                                                                                                                                                                                                                                                                                                                           : profileError.message;
+
+                                                                                                                                                                                                                                                                                                                                                               signupButton.disabled = false;
+                                                                                                                                                                                                                                                                                                                                                                   signupButton.textContent = "Create Account";
+                                                                                                                                                                                                                                                                                                                                                                       return;
+                                                                                                                                                                                                                                                                                                                                                                         }
+
+                                                                                                                                                                                                                                                                                                                                                                           accountMessage.textContent =
+                                                                                                                                                                                                                                                                                                                                                                               "Account created successfully!";
+
+                                                                                                                                                                                                                                                                                                                                                                                 signupButton.textContent = "Account Created";
+                                                                                                                                                                                                                                                                                                                                                                                 });
+
+                                                                                                                                                                                                                                                   accountMessage.textContent =
+                                                                                                                                                                                                                                                       "Account created! Check your email if confirmation is required.";
+
+                                                                                                                                                                                                                                                         signupButton.textContent = "Account Created";
+                                                                                                                                                                                                                                                         ;
                                                                                                                                                                                                 </script>
+          <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
             </body>
             </html>
