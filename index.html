@@ -15,7 +15,7 @@
                                 <a href="#">Leaderboard</a>
                                   </nav>
 
-                                    <button class="login">Login</button>
+                                    <button class="login" id="auth-button">Login</button>
 
                                     <div id="login-panel" class="login-panel">
                                         <div class="login-box">
@@ -448,6 +448,32 @@
   if (savedUsername && profileUsername) {
     profileUsername.textContent = savedUsername;
     }
+    const authButton = document.getElementById("auth-button");
+
+    if (authButton) {
+      if (savedUsername) {
+          authButton.textContent = "Log Out";
+              authButton.style.color = "green";
+                } else {
+                    authButton.textContent = "Login";
+                        authButton.style.color = "white";
+                          }
+                          }
+                          if (authButton) {
+                              authButton.addEventListener("click", () => {
+                                  if (localStorage.getItem("kydnoUsername")) {
+                                        localStorage.removeItem("kydnoUsername");
+
+                                              authButton.textContent = "Login";
+                                                    authButton.style.color = "white";
+
+                                                          if (profileUsername) {
+                                                                  profileUsername.textContent = "Not logged in";
+                                                                        }
+                                                                            }
+                                                                              });
+                                                                              }
+                          
 </script>
             </body>
             </html>
