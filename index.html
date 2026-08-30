@@ -37,9 +37,7 @@
 
                                                                   <p id="login-message"></p>
 
-                                                                                                            <button id="login-submit" class="login-submit">
-                                                                                                                  Login
-                                                                                                                      </button>
+                                                                                                            
 
                                                                                                                           <p id="login-message"></p>
                                                                                                                             </div>
@@ -418,19 +416,7 @@
                                                                                 });
                                                                                 }
 
-  if (loginSubmit && loginEmail && loginPassword && loginMessage) {
-    loginSubmit.addEventListener("click", () => {
-        const email = loginEmail.value.trim();
-            const password = loginPassword.value;
-
-                if (!email || !password) {
-                      loginMessage.textContent = "Please enter your email and password.";
-                            return;
-                                }
-
-                                    loginMessage.textContent = "Login information entered.";
-                                      });
-                                      }
+  
 
   document.addEventListener("DOMContentLoaded", () => {
     const profileButton = document.getElementById("profile-button");
@@ -440,6 +426,7 @@
     if (!profileButton || !profilePanel || !closeProfile) {
       return;
     }
+    
 
     profileButton.addEventListener("click", () => {
       profilePanel.classList.add("open");
@@ -455,6 +442,12 @@
       }
     });
   });
+  const savedUsername = localStorage.getItem("kydnoUsername");
+  const profileUsername = document.getElementById("profile-username");
+
+  if (savedUsername && profileUsername) {
+    profileUsername.textContent = savedUsername;
+    }
 </script>
             </body>
             </html>
