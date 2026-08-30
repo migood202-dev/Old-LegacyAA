@@ -245,7 +245,7 @@
                                                                                                                                  <script>
   const SUPABASE_URL = "https://hnavfaxqrygqlcfldubg.supabase.co";
   const SUPABASE_KEY = "sb_publishable_zzbxRMNlAN5GriNXG2OYVQ_qAEN2lIN";
-  //const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const sideButtons = document.querySelectorAll(".side-btn");
   const buttons = document.querySelectorAll(".flip-button");
@@ -388,6 +388,24 @@
       }
     });
   }
+  const loginSubmit = document.getElementById("login-submit");
+  const loginEmail = document.getElementById("login-email");
+  const loginPassword = document.getElementById("login-password");
+  const loginMessage = document.getElementById("login-message");
+
+  if (loginSubmit && loginEmail && loginPassword && loginMessage) {
+    loginSubmit.addEventListener("click", () => {
+        const email = loginEmail.value.trim();
+            const password = loginPassword.value;
+
+                if (!email || !password) {
+                      loginMessage.textContent = "Please enter your email and password.";
+                            return;
+                                }
+
+                                    loginMessage.textContent = "Login information entered.";
+                                      });
+                                      }
 
   document.addEventListener("DOMContentLoaded", () => {
     const profileButton = document.getElementById("profile-button");
