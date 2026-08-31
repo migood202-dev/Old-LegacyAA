@@ -27,7 +27,10 @@
                                                                               <span>Settings</span>
                                                                                   </button>
                                                                                     </div>
-                                                                                    </aside>
+                                                                                  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar">
+                                                                                      ‹
+                                                                                      </button>
+                                                                                  </aside>
                                                                                     <!-- Inventory Panel -->
                                                                                     <div class="inventory-panel" id="inventory-panel">
                                                                                       <div class="inventory-header">
@@ -588,6 +591,23 @@
                                                                                                                                                                                                           inventoryPanel.classList.remove("open");
                                                                                                                                                                                                             });
                                                                                                                                                                                                             }
+                                                                                                                                                                                                            // Sidebar Toggle
+                                                                                                                                                                                                            const sideMenu = document.querySelector(".side-menu");
+                                                                                                                                                                                                            const sidebarToggle = document.getElementById("sidebar-toggle");
+
+                                                                                                                                                                                                            if (sideMenu && sidebarToggle) {
+                                                                                                                                                                                                              sidebarToggle.addEventListener("click", () => {
+                                                                                                                                                                                                                  sideMenu.classList.toggle("collapsed");
+
+                                                                                                                                                                                                                      if (sideMenu.classList.contains("collapsed")) {
+                                                                                                                                                                                                                            sidebarToggle.textContent = "›";
+                                                                                                                                                                                                                                  sidebarToggle.setAttribute("aria-label", "Open sidebar");
+                                                                                                                                                                                                                                      } else {
+                                                                                                                                                                                                                                            sidebarToggle.textContent = "‹";
+                                                                                                                                                                                                                                                  sidebarToggle.setAttribute("aria-label", "Collapse sidebar");
+                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                        });
+                                                                                                                                                                                                                                                        }
                                                                               
                           
 </script>
