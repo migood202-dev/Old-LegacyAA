@@ -438,29 +438,50 @@
   const loginMessage = document.getElementById("login-message");
 
   if (loginSubmit && loginUsername && loginMessage) {
-    loginSubmit.addEventListener("click", () => {
-        const username = loginUsername.value.trim();
+      loginSubmit.addEventListener("click", async () => {
+          const username = loginUsername.value.trim();
 
-            if (!username) {
-                  loginMessage.textContent = "Please enter a username.";
-                        return;
-                            }
+              if (!username) {
+                    loginMessage.textContent = "Please enter your username.";
+                          return;
+                              }
 
-                                if (!/^[a-zA-Z0-9_]{3,20}$/.test(username)) {
-                                      loginMessage.textContent =
-                                              "Username must be 3–20 characters and use only letters, numbers, or _.";
-                                                    return;
-                                                        }
+                                  if (!/^[a-zA-Z0-9_]{3,20}$/.test(username)) {
+                                        loginMessage.textContent =
+                                                "Username must be 3–20 characters and use only letters, numbers, or _.";
+                                                      return;
+                                                          }
 
-                                                            localStorage.setItem("kydnoUsername", username);
+                                                              loginMessage.textContent = "Logging in...";
 
-                                                                loginMessage.textContent = `Welcome, ${username}!`;
+                                                                  const { data: profiles, error: profileError } = await supabaseClient
+                                                                        .from("profiles")
+                                                                              .select("id, username")
+                                                                                    .eq("username", username)
+                                                                                          .limit(1);
 
-                                                                    setTimeout(() => {
-                                                                          loginPanel.classList.remove("open");
-                                                                              }, 700);
-                                                                                });
-                                                                                }
+                                                                                              if (profileError) {
+                                                                                                    loginMessage.textContent = profileError.message;
+                                                                                                          return;
+                                                                                                              }
+
+                                                                                                                  if (!profiles || profiles.length === 0) {
+                                                                                                                        loginMessage.textContent = "Account not found.";
+                                                                                                                              return;
+                                                                                                                                  }
+
+                                                                                                                                      localStorage.setItem("kydnoUsername", profiles[0].username);
+                                                                                                                                          localStorage.setItem("kydnoUserId", profiles[0].id);
+
+                                                                                                                                              loginMessage.textContent = `Welcome, ${profiles[0].username}!`;
+
+                                                                                                                                                  setTimeout(() => {
+                                                                                                                                                        loginPanel.classList.remove("open");
+                                                                                                                                                              location.reload();
+                                                                                                                                                                  }, 700);
+                                                                                                                                                                    });
+                                                                                                                                                                    }
+  }
 
   
 
