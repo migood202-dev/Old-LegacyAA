@@ -575,6 +575,24 @@
                                                                                                                                                                                           { name: "Mega Ice Serpent", value: 17500000 },
                                                                                                                                                                                             { name: "Mega Rainbow Ice Serpent", value: 25000000 }
                                                                                                                                                                                             ];
+                                                                                                                                                                                            // Kydno Sidebar Toggle
+                                                                                                                                                                                            (() => {
+                                                                                                                                                                                              const kydnoSidebar = document.querySelector(".side-menu");
+                                                                                                                                                                                                const kydnoToggle = document.getElementById("sidebar-toggle");
+
+                                                                                                                                                                                                  if (!kydnoSidebar || !kydnoToggle) return;
+
+                                                                                                                                                                                                    kydnoToggle.addEventListener("click", () => {
+                                                                                                                                                                                                        const isCollapsed = kydnoSidebar.classList.toggle("collapsed");
+
+                                                                                                                                                                                                            kydnoToggle.textContent = isCollapsed ? "›" : "‹";
+
+                                                                                                                                                                                                                kydnoToggle.setAttribute(
+                                                                                                                                                                                                                      "aria-label",
+                                                                                                                                                                                                                            isCollapsed ? "Open sidebar" : "Collapse sidebar"
+                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                  });
+                                                                                                                                                                                                                                  })();
                                                                                                                                                                                             // Inventory Panel Controls
                                                                                                                                                                                             const inventoryButton = document.getElementById("inventory-button");
                                                                                                                                                                                             const inventoryPanel = document.getElementById("inventory-panel");
