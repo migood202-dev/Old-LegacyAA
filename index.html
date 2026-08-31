@@ -28,6 +28,25 @@
                                                                                   </button>
                                                                                     </div>
                                                                                     </aside>-->
+                                                                                    <!-- Inventory Panel -->
+                                                                                    <div class="inventory-panel" id="inventory-panel">
+                                                                                      <div class="inventory-header">
+                                                                                          <div>
+                                                                                                <h2>Inventory</h2>
+                                                                                                      <p>Your items</p>
+                                                                                                          </div>
+                                                                                                          
+                                                                                                              <button class="inventory-close" id="inventory-close">×</button>
+                                                                                                                </div>
+                                                                                                                
+                                                                                                                  <div class="inventory-content" id="inventory-content">
+                                                                                                                      <div class="inventory-empty">
+                                                                                                                            <div class="inventory-empty-icon">📦</div>
+                                                                                                                                  <h3>Your inventory is empty</h3>
+                                                                                                                                        <p>Items you own will appear here.</p>
+                                                                                                                                            </div>
+                                                                                                                                              </div>
+                                                                                                                                              </div>-->
         <header>
               <div class="logo">Old Legacys</div>
 
@@ -553,6 +572,22 @@
                                                                                                                                                                                           { name: "Mega Ice Serpent", value: 17500000 },
                                                                                                                                                                                             { name: "Mega Rainbow Ice Serpent", value: 25000000 }
                                                                                                                                                                                             ];
+                                                                                                                                                                                            // Inventory Panel Controls
+                                                                                                                                                                                            const inventoryButton = document.getElementById("inventory-button");
+                                                                                                                                                                                            const inventoryPanel = document.getElementById("inventory-panel");
+                                                                                                                                                                                            const inventoryClose = document.getElementById("inventory-close");
+
+                                                                                                                                                                                            if (inventoryButton && inventoryPanel) {
+                                                                                                                                                                                              inventoryButton.addEventListener("click", () => {
+                                                                                                                                                                                                  inventoryPanel.classList.toggle("open");
+                                                                                                                                                                                                    });
+                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                    if (inventoryClose && inventoryPanel) {
+                                                                                                                                                                                                      inventoryClose.addEventListener("click", () => {
+                                                                                                                                                                                                          inventoryPanel.classList.remove("open");
+                                                                                                                                                                                                            });
+                                                                                                                                                                                                            }
                                                                               
                           
 </script>
