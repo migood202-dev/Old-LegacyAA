@@ -606,10 +606,19 @@
                                                                                                                                                                                                     }
 
                                                                                                                                                                                                     if (inventoryClose && inventoryPanel) {
-                                                                                                                                                                                                      inventoryClose.addEventListener("click", () => {
-                                                                                                                                                                                                          inventoryPanel.classList.remove("open");
-                                                                                                                                                                                                            });
-                                                                                                                                                                                                            }
+                                                                                                                                                                                                        inventoryClose.addEventListener("click", () => {
+                                                                                                                                                                                                            inventoryPanel.classList.remove("open");
+                                                                                                                                                                                                                inventoryPanel.style.display = "none";
+                                                                                                                                                                                                                  });
+                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                  if (inventoryButton && inventoryPanel) {
+                                                                                                                                                                                                                    inventoryButton.addEventListener("click", () => {
+                                                                                                                                                                                                                        inventoryPanel.style.display = "";
+                                                                                                                                                                                                                            inventoryPanel.classList.add("open");
+                                                                                                                                                                                                                              });
+                                                                                                                                                                                                                              }
+                                                                                                                                                                                                    
                                                                                                                                                                                                             
                                                                               
                           
