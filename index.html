@@ -575,6 +575,46 @@
                                                                                                                                                                                           { name: "Mega Ice Serpent", value: 17500000 },
                                                                                                                                                                                             { name: "Mega Rainbow Ice Serpent", value: 25000000 }
                                                                                                                                                                                             ];
+                                                                                                                                                                                            // Inventory Item Renderer
+                                                                                                                                                                                            const inventoryContent = document.getElementById("inventory-content");
+
+                                                                                                                                                                                            function renderInventory() {
+                                                                                                                                                                                              if (!inventoryContent) return;
+
+                                                                                                                                                                                                inventoryContent.innerHTML = "";
+
+                                                                                                                                                                                                  const sortedItems = [...itemDatabase].sort((a, b) => a.value - b.value);
+
+                                                                                                                                                                                                    sortedItems.forEach((item, index) => {
+                                                                                                                                                                                                        const itemCard = document.createElement("div");
+                                                                                                                                                                                                            itemCard.className = "inventory-item";
+
+                                                                                                                                                                                                                itemCard.innerHTML = `
+                                                                                                                                                                                                                      <div class="inventory-item-image">
+                                                                                                                                                                                                                              📦
+                                                                                                                                                                                                                                    </div>
+
+                                                                                                                                                                                                                                          <div class="inventory-item-info">
+                                                                                                                                                                                                                                                  <h3>${item.name}</h3>
+                                                                                                                                                                                                                                                          <p>Value: ${item.value.toLocaleString()}</p>
+                                                                                                                                                                                                                                                                </div>
+
+                                                                                                                                                                                                                                                                      <button class="inventory-item-delete" type="button">
+                                                                                                                                                                                                                                                                              Delete
+                                                                                                                                                                                                                                                                                    </button>
+                                                                                                                                                                                                                                                                                        `;
+
+                                                                                                                                                                                                                                                                                            const deleteButton = itemCard.querySelector(".inventory-item-delete");
+
+                                                                                                                                                                                                                                                                                                deleteButton.addEventListener("click", () => {
+                                                                                                                                                                                                                                                                                                      itemCard.remove();
+                                                                                                                                                                                                                                                                                                          });
+
+                                                                                                                                                                                                                                                                                                              inventoryContent.appendChild(itemCard);
+                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                                                renderInventory();
                                                                                                                                                                                             // Kydno Sidebar Toggle
                                                                                                                                                                                             document.addEventListener("DOMContentLoaded", () => {
                                                                                                                                                                                               const sidebar = document.querySelector(".side-menu");
@@ -618,6 +658,13 @@
                                                                                                                                                                                                                             inventoryPanel.classList.add("open");
                                                                                                                                                                                                                               });
                                                                                                                                                                                                                               }
+                                                                                                                                                                                                                              const { data: { user } } = await supabaseClient.auth.getUser();
+
+                                                                                                                                                                                                                              if (user) {
+                                                                                                                                                                                                                                alert("Your Supabase UID is:\n" + user.id);
+                                                                                                                                                                                                                                } else {
+                                                                                                                                                                                                                                  alert("No Supabase user is currently logged in.");
+                                                                                                                                                                                                                                  }
                                                                                                                                                                                                     
                                                                                                                                                                                                             
                                                                               
