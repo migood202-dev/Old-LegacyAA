@@ -658,13 +658,7 @@
                                                                                                                                                                                                                             inventoryPanel.classList.add("open");
                                                                                                                                                                                                                               });
                                                                                                                                                                                                                               }
-                                                                                                                                                                                                                              const { data: { user } } = await supabaseClient.auth.getUser();
-
-                                                                                                                                                                                                                              if (user) {
-                                                                                                                                                                                                                                alert("Your Supabase UID is:\n" + user.id);
-                                                                                                                                                                                                                                } else {
-                                                                                                                                                                                                                                  alert("No Supabase user is currently logged in.");
-                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                              
                                                                                                                                                                                                     
                                                                                                                                                                                                             
                                                                               
