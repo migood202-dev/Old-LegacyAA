@@ -610,23 +610,7 @@
                                                                                                                                                                                                           inventoryPanel.classList.remove("open");
                                                                                                                                                                                                             });
                                                                                                                                                                                                             }
-                                                                                                                                                                                                            // Sidebar Toggle
-                                                                                                                                                                                                            const sideMenu = document.querySelector(".side-menu");
-                                                                                                                                                                                                            const sidebarToggle = document.getElementById("sidebar-toggle");
-
-                                                                                                                                                                                                            if (sideMenu && sidebarToggle) {
-                                                                                                                                                                                                              sidebarToggle.addEventListener("click", () => {
-                                                                                                                                                                                                                  sideMenu.classList.toggle("collapsed");
-
-                                                                                                                                                                                                                      if (sideMenu.classList.contains("collapsed")) {
-                                                                                                                                                                                                                            sidebarToggle.textContent = "›";
-                                                                                                                                                                                                                                  sidebarToggle.setAttribute("aria-label", "Open sidebar");
-                                                                                                                                                                                                                                      } else {
-                                                                                                                                                                                                                                            sidebarToggle.textContent = "‹";
-                                                                                                                                                                                                                                                  sidebarToggle.setAttribute("aria-label", "Collapse sidebar");
-                                                                                                                                                                                                                                                      }
-                                                                                                                                                                                                                                                        });
-                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                            
                                                                               
                           
 </script>
