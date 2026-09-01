@@ -143,7 +143,7 @@
                                                                                                                                                                                                 </div>
                                                                                                                                                                                                   </div>
                                                                                                                                                                                                   </div>
-                                                                                            <section class="account-section">
+                                                                                            <section class="account-section" id="account-section">
                                                                                                 <h2>Create Your Kydno Kore Account</h2>
 
                                                                                                   <div class="account-panel">
@@ -516,6 +516,11 @@
     });
   });
   const savedUsername = localStorage.getItem("kydnoUsername");
+  const accountSection = document.getElementById("account-section");
+
+  if (accountSection && savedUsername) {
+    accountSection.style.display = "none";
+    }
   const profileUsername = document.getElementById("profile-username");
 
   if (savedUsername && profileUsername) {
@@ -541,6 +546,11 @@
 
                                                   localStorage.removeItem("kydnoUsername");
                                                         localStorage.removeItem("kydnoUserId");
+                                                        const accountSection = document.getElementById("account-section");
+
+                                                        if (accountSection) {
+                                                          accountSection.style.display = "block";
+                                                          }
 
                                                               authButton.textContent = "Login";
                                                                     authButton.style.color = "white";
