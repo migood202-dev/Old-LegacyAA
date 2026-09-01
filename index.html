@@ -149,6 +149,7 @@
                                                                                                                                                                                                   </div>
                                                                                                                                                                                                   <div id="admin-panel" class="profile-panel">
                                                                                                                                                                                                       <div class="profile-box">
+
                                                                                                                                                                                                           <button id="close-admin" class="close-profile">×</button>
 
                                                                                                                                                                                                               <h2>👑 Admin Panel</h2>
@@ -156,8 +157,25 @@
                                                                                                                                                                                                                   <p>Administrator access: OldKd</p>
 
                                                                                                                                                                                                                       <div class="admin-content">
-                                                                                                                                                                                                                            <p>Select a user to manage their account.</p>
-                                                                                                                                                                                                                                </div>
+
+                                                                                                                                                                                                                          <p>Search for a user to manage their account.</p>
+
+                                                                                                                                                                                                                            <input
+                                                                                                                                                                                                                                type="text"
+                                                                                                                                                                                                                                    id="admin-user-search"
+                                                                                                                                                                                                                                        placeholder="Enter username"
+                                                                                                                                                                                                                                          >
+
+                                                                                                                                                                                                                                            <button id="admin-search-button">
+                                                                                                                                                                                                                                                Search User
+                                                                                                                                                                                                                                                  </button>
+
+                                                                                                                                                                                                                                                    <div id="admin-user-result"></div>
+
+                                                                                                                                                                                                                                                    </div>
+
+                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                  </div>
                                                                                                                                                                                                                                   </div>
                                                                                                                                                                                                                                   </div>
                                                                                             <section class="account-section" id="account-section">
@@ -539,6 +557,9 @@
   const adminButton = document.getElementById("admin-button");
   const adminPanel = document.getElementById("admin-panel");
   const closeAdmin = document.getElementById("close-admin");
+  const adminUserSearch = document.getElementById("admin-user-search");
+  const adminSearchButton = document.getElementById("admin-search-button");
+  const adminUserResult = document.getElementById("admin-user-result");
 
   if (adminButton && adminPanel && closeAdmin) {
 
@@ -557,6 +578,18 @@
                                     });
 
                                     }
+                                    if (adminSearchButton && adminUserSearch && adminUserResult) {
+                                      adminSearchButton.addEventListener("click", () => {
+                                          const username = adminUserSearch.value.trim();
+                                          
+                                              if (!username) {
+                                                    adminUserResult.textContent = "Please enter a username.";
+                                                          return;
+                                                              }
+
+                                                                  adminUserResult.textContent = `Searching for ${username}...`;
+                                                                    });
+                                                                    }
 
   if (savedIsAdmin === "true" && adminButton) {
     adminButton.style.display = "flex";
