@@ -147,6 +147,19 @@
                                                                                                                                                                                                 </div>
                                                                                                                                                                                                   </div>
                                                                                                                                                                                                   </div>
+                                                                                                                                                                                                  <div id="admin-panel" class="profile-panel">
+                                                                                                                                                                                                      <div class="profile-box">
+                                                                                                                                                                                                          <button id="close-admin" class="close-profile">×</button>
+
+                                                                                                                                                                                                              <h2>👑 Admin Panel</h2>
+
+                                                                                                                                                                                                                  <p>Administrator access: OldKd</p>
+
+                                                                                                                                                                                                                      <div class="admin-content">
+                                                                                                                                                                                                                            <p>Select a user to manage their account.</p>
+                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                  </div>
                                                                                             <section class="account-section" id="account-section">
                                                                                                 <h2>Create Your Kydno Kore Account</h2>
 
@@ -524,6 +537,26 @@
   const accountSection = document.getElementById("account-section");
   const savedIsAdmin = localStorage.getItem("kydnoIsAdmin");
   const adminButton = document.getElementById("admin-button");
+  const adminPanel = document.getElementById("admin-panel");
+  const closeAdmin = document.getElementById("close-admin");
+
+  if (adminButton && adminPanel && closeAdmin) {
+
+    adminButton.addEventListener("click", () => {
+        adminPanel.classList.add("open");
+          });
+
+            closeAdmin.addEventListener("click", () => {
+                adminPanel.classList.remove("open");
+                  });
+
+                    adminPanel.addEventListener("click", (event) => {
+                        if (event.target === adminPanel) {
+                              adminPanel.classList.remove("open");
+                                  }
+                                    });
+
+                                    }
 
   if (savedIsAdmin === "true" && adminButton) {
     adminButton.style.display = "flex";
