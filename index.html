@@ -663,17 +663,24 @@
 
                                                                                                                                                                                                   if (!sidebar || !toggle) return;
 
-                                                                                                                                                                                                    toggle.addEventListener("click", function () {
-                                                                                                                                                                                                        sidebar.classList.toggle("collapsed");
+                                                                                                                                  toggle.addEventListener("click", function () {
+  sidebar.classList.toggle("collapsed");
 
-                                                                                                                                                                                                            if (sidebar.classList.contains("collapsed")) {
-                                                                                                                                                                                                                  toggle.textContent = "›";
-                                                                                                                                                                                                                        toggle.setAttribute("aria-label", "Open sidebar");
-                                                                                                                                                                                                                            } else {
-                                                                                                                                                                                                                                  toggle.textContent = "‹";
-                                                                                                                                                                                                                                        toggle.setAttribute("aria-label", "Collapse sidebar");
-                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                              });
+  const inventoryPanel = document.getElementById("inventory-panel");
+
+  if (sidebar.classList.contains("collapsed")) {
+    toggle.textContent = "›";
+    toggle.setAttribute("aria-label", "Open sidebar");
+
+    if (inventoryPanel) {
+      inventoryPanel.classList.remove("open");
+      inventoryPanel.style.display = "none";
+    }
+  } else {
+    toggle.textContent = "‹";
+    toggle.setAttribute("aria-label", "Collapse sidebar");
+  }
+});
                                                                                                                                                                                                                                               });
                                                                                                                                                                                             // Inventory Panel Controls
                                                                                                                                                                                             const inventoryButton = document.getElementById("inventory-button");
