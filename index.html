@@ -608,10 +608,53 @@
 
                                                                                                                                                 const user = data[0];
 
-                                                                                                                                                    adminUserResult.innerHTML = `
-                                                                                                                                                          <h3>${user.username}</h3>
-                                                                                                                                                                <p>User ID: ${user.id}</p>
-                                                                                                                                                                    `;
+                                                                                                                                                adminUserResult.innerHTML = `
+                                                                                                                                                  <h3>${user.username}</h3>
+                                                                                                                                                    <p>User found successfully.</p>
+
+                                                                                                                                                      <button id="admin-view-inventory">
+                                                                                                                                                          📦 View Inventory
+                                                                                                                                                            </button>
+                                                                                                                                                            `;
+
+                                                                                                                                                            const viewInventoryButton = document.getElementById("admin-view-inventory");
+
+                                                                                                                                                            viewInventoryButton.addEventListener("click", async () => {
+                                                                                                                                                              adminUserResult.innerHTML = `
+                                                                                                                                                                  <h3>${user.username}'s Inventory</h3>
+                                                                                                                                                                      <p>Loading inventory...</p>
+                                                                                                                                                                        `;
+
+                                                                                                                                                                          const { data: inventory, error: inventoryError } =
+                                                                                                                                                                              await supabaseClient.rpc("admin_get_user_inventory", {
+                                                                                                                                                                                    target_user_id: user.id
+                                                                                                                                                                                        });
+
+                                                                                                                                                                                          if (inventoryError) {
+                                                                                                                                                                                              adminUserResult.innerHTML = `
+                                                                                                                                                                                                    <p>${inventoryError.message}</p>
+                                                                                                                                                                                                        `;
+                                                                                                                                                                                                            return;
+                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                if (!inventory || inventory.length === 0) {
+                                                                                                                                                                                                                    adminUserResult.innerHTML = `
+                                                                                                                                                                                                                          <h3>${user.username}'s Inventory</h3>
+                                                                                                                                                                                                                                <p>This inventory is empty.</p>
+                                                                                                                                                                                                                                    `;
+                                                                                                                                                                                                                                        return;
+                                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                                            adminUserResult.innerHTML = `
+                                                                                                                                                                                                                                                <h3>${user.username}'s Inventory</h3>
+                                                                                                                                                                                                                                                    ${inventory.map(item => `
+                                                                                                                                                                                                                                                          <div class="admin-inventory-item">
+                                                                                                                                                                                                                                                                  <strong>${item.item_name}</strong>
+                                                                                                                                                                                                                                                                          <p>Value: ${Number(item.item_value).toLocaleString()}</p>
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                    `).join("")}
+                                                                                                                                                                                                                                                                                      `;
+                                                                                                                                                                                                                                                                                      });
                                                                                                                                                                       });
                                                                                                                                                                       }
                                    
