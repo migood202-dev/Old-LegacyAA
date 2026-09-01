@@ -578,18 +578,43 @@
                                     });
 
                                     }
-                                    if (adminSearchButton && adminUserSearch && adminUserResult) {
-                                      adminSearchButton.addEventListener("click", () => {
+                                   if (adminSearchButton && adminUserSearch && adminUserResult) {
+                                      adminSearchButton.addEventListener("click", async () => {
                                           const username = adminUserSearch.value.trim();
-                                          
+
                                               if (!username) {
                                                     adminUserResult.textContent = "Please enter a username.";
                                                           return;
                                                               }
 
-                                                                  adminUserResult.textContent = `Searching for ${username}...`;
-                                                                    });
-                                                                    }
+                                                                  adminUserResult.textContent = "Searching...";
+
+                                                                      const { data, error } = await supabaseClient.rpc(
+                                                                            "admin_search_user",
+                                                                                  {
+                                                                                          search_username: username
+                                                                                                }
+                                                                                                    );
+
+                                                                                                        if (error) {
+                                                                                                              adminUserResult.textContent = error.message;
+                                                                                                                    return;
+                                                                                                                        }
+
+                                                                                                                            if (!data || data.length === 0) {
+                                                                                                                                  adminUserResult.textContent = "User not found.";
+                                                                                                                                        return;
+                                                                                                                                            }
+
+                                                                                                                                                const user = data[0];
+
+                                                                                                                                                    adminUserResult.innerHTML = `
+                                                                                                                                                          <h3>${user.username}</h3>
+                                                                                                                                                                <p>User ID: ${user.id}</p>
+                                                                                                                                                                    `;
+                                                                                                                                                                      });
+                                                                                                                                                                      }
+                                   
 
   if (savedIsAdmin === "true" && adminButton) {
     adminButton.style.display = "flex";
