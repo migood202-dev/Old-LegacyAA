@@ -26,6 +26,10 @@
                                                                         <span class="side-menu-icon">⚙️</span>
                                                                               <span>Settings</span>
                                                                                   </button>
+                                                                                  <button class="side-menu-button" id="admin-button" style="display: none;">
+                                                                                      <span class="side-menu-icon">👑</span>
+                                                                                        <span>Admin Panel</span>
+                                                                                        </button>
                                                                                     </div>
                                                                                   <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar">
                                                                                       ‹
@@ -467,7 +471,7 @@
 
                                                                                 const { data: profileData, error: profileError } = await supabaseClient
                                                                                       .from("profiles")
-                                                                                            .select("username")
+                                                                                            .select("username, is_admin")
                                                                                                   .eq("id", data.user.id)
                                                                                                         .maybeSingle();
 
@@ -478,6 +482,7 @@
 
                                                                                                                                 localStorage.setItem("kydnoUsername", profileData.username);
                                                                                                                                     localStorage.setItem("kydnoUserId", data.user.id);
+                                                                                                                                    localStorage.setItem("kydnoIsAdmin", profileData.is_admin === true ? "true" : "false");
 
                                                                                                                                         loginMessage.textContent = `Welcome, ${profileData.username}!`;
 
@@ -517,6 +522,12 @@
   });
   const savedUsername = localStorage.getItem("kydnoUsername");
   const accountSection = document.getElementById("account-section");
+  const savedIsAdmin = localStorage.getItem("kydnoIsAdmin");
+  const adminButton = document.getElementById("admin-button");
+
+  if (savedIsAdmin === "true" && adminButton) {
+    adminButton.style.display = "flex";
+    }
 
   if (accountSection && savedUsername) {
     accountSection.style.display = "none";
