@@ -620,10 +620,34 @@
                                                                                                                                                             const viewInventoryButton = document.getElementById("admin-view-inventory");
 
                                                                                                                                                             viewInventoryButton.addEventListener("click", async () => {
-                                                                                                                                                              adminUserResult.innerHTML = `
-                                                                                                                                                                  <h3>${user.username}'s Inventory</h3>
-                                                                                                                                                                      <p>Loading inventory...</p>
-                                                                                                                                                                        `;
+                                                                                                                                                            const adminInventoryPopup = document.getElementById("admin-inventory-popup");
+                                                                                                                                                            const closeAdminInventory = document.getElementById("close-admin-inventory");
+                                                                                                                                                            const adminInventoryOverlay = document.querySelector(".admin-inventory-overlay");
+
+                                                                                                                                                            closeAdminInventory.addEventListener("click", () => {
+                                                                                                                                                              adminInventoryPopup.classList.add("hidden");
+                                                                                                                                                              });
+
+                                                                                                                                                              adminInventoryOverlay.addEventListener("click", () => {
+                                                                                                                                                                adminInventoryPopup.classList.add("hidden");
+                                                                                                                                                                });
+                                                                                                                                                            const adminInventoryTitle = document.getElementById("admin-inventory-title");
+                                                                                                                                                            const adminInventoryContent = document.getElementById("admin-inventory-content");
+
+                                                                                                                                                            adminInventoryPopup.classList.remove("hidden");
+
+                                                                                                                                                            adminInventoryTitle.textContent = `${user.username}'s Inventory`;
+
+                                                                                                                                                            adminInventoryContent.innerHTML = `
+                                                                                                                                                              <div class="admin-loading-inventory">
+                                                                                                                                                                  Loading inventory...
+                                                                                                                                                                    </div>
+                                                                                                                                                                    `;
+                                                                                                                                                              adminInventoryContent.innerHTML = `
+                                                                                                                                                                <div class="admin-loading-inventory">
+                                                                                                                                                                    Loading inventory...
+                                                                                                                                                                      </div>
+                                                                                                                                                                      `;
 
                                                                                                                                                                           const { data: inventory, error: inventoryError } =
                                                                                                                                                                               await supabaseClient.rpc("admin_get_user_inventory", {
@@ -631,22 +655,32 @@
                                                                                                                                                                                         });
 
                                                                                                                                                                                           if (inventoryError) {
-                                                                                                                                                                                              adminUserResult.innerHTML = `
-                                                                                                                                                                                                    <p>${inventoryError.message}</p>
-                                                                                                                                                                                                        `;
-                                                                                                                                                                                                            return;
-                                                                                                                                                                                                              }
+                                                                                                                                                                                              adminInventoryContent.innerHTML = `
+                                                                                                                                                                                                  <div class="admin-empty-inventory">
+                                                                                                                                                                                                        <div class="admin-empty-icon">⚠️</div>
+                                                                                                                                                                                                              <h3>Unable to Load Inventory</h3>
+                                                                                                                                                                                                                    <p>${inventoryError.message}</p>
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                          `;
+                                                                                                                                                                                                                            return;
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                          
 
                                                                                                                                                                                                                 if (!inventory || inventory.length === 0) {
-                                                                                                                                                                                                                    adminUserResult.innerHTML = `
-                                                                                                                                                                                                                          <h3>${user.username}'s Inventory</h3>
-                                                                                                                                                                                                                                <p>This inventory is empty.</p>
-                                                                                                                                                                                                                                    `;
-                                                                                                                                                                                                                                        return;
-                                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                    adminInventoryContent.innerHTML = `
+                                                                                                                                                                                                                        <div class="admin-empty-inventory">
+                                                                                                                                                                                                                              <div class="admin-empty-icon">📦</div>
+                                                                                                                                                                                                                                    <h3>No Items Found</h3>
+                                                                                                                                                                                                                                          <p>${user.username}'s inventory is currently empty.</p>
+                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                `;
+                                                                                                                                                                                                                                                  return;
+                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                
+                                                                                                                                                                                                                
+                                                                                                                                                                                                                                          
 
-                                                                                                                                                                                                                                            adminUserResult.innerHTML = `
-                                                                                                                                                                                                                                                <h3>${user.username}'s Inventory</h3>
+                                                                                                                                                                                                                                            adminInventoryContent.innerHTML = `
                                                                                                                                                                                                                                                     ${inventory.map(item => `
                                                                                                                                                                                                                                                       <div class="admin-inventory-item">
                                                                                                                                                                                                                                                       
@@ -692,9 +726,14 @@
                                                                                                                                                                                                                                                                                                                                                                                               // Remove only this one item from the displayed inventory
                                                                                                                                                                                                                                                                                                                                                                                                   deleteButton.closest(".admin-inventory-item").remove();
                                                                                                                                                                                                                                                                                                                                                                                                     });
-                                                                                                                                                                                                                                                                                                                                                                                                    });
-                                                                                                                                                                                                                                                                                      })
-                                                                                                                                                                                                                                                                                      });
+                                                                                                                                                                                                                                                                                                                                                                                                  });
+
+                                                                                                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                      
+                                                                                                                                                                                                                                                                                      
                                                                                                                                                                       
                                                                                                                                                                       
                                    
@@ -943,7 +982,7 @@
                                                                                                                                                                                                     
                                                                                                                                                                                                             
                                                                               
-                                                                                                                                                                                                                            };
+                                                                                                                                                                                                                            
   </script>
   <!-- ADMIN USER INVENTORY POPUP -->
   <div id="admin-inventory-popup" class="admin-inventory-popup hidden">
@@ -975,7 +1014,7 @@
                                                                                 
                                                                                   </div>
                                                                                   
-                                                                                  </div>-->                                                                                                                                                                                                                                                                                                                                                                                                                 
+                                                                                  </div>                                                                                                                                                                                                                                                                                                                                                                                              
 
  </body>
  </html>
