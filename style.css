@@ -1405,3 +1405,7 @@
                                           background-position: center center !important;
                                             background-repeat: no-repeat !important;
                                             }
+                                            /* REMOVE THE OLD BLACK DISTANT LANDSCAPE LAYER */
+                                            .hero::after {
+                                                display: none !important;
+                                                }
