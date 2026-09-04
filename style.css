@@ -1391,3 +1391,17 @@
   background-position: center center !important;
   background-repeat: no-repeat !important;
 }
+.hero {
+  background-image:
+      linear-gradient(
+            to bottom,
+                  rgba(2, 7, 18, 0.65) 0%,
+                        rgba(2, 7, 18, 0.45) 45%,
+                              rgba(2, 7, 18, 0.95) 100%
+                                  ),
+                                      url("assets/photo-1712032861850-967bcf158324.jpeg") !important;
+
+                                        background-size: cover !important;
+                                          background-position: center center !important;
+                                            background-repeat: no-repeat !important;
+                                            }
