@@ -565,6 +565,9 @@
   const backHomeButton = document.getElementById("back-home-button");
   const liveFlipsPage = document.getElementById("live-flips-page");
   const heroSection = document.querySelector(".hero");
+  
+
+  
 
   sideButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -780,6 +783,10 @@
   const savedIsAdmin = localStorage.getItem("kydnoIsAdmin");
   const adminButton = document.getElementById("admin-button");
   const adminPanel = document.getElementById("admin-panel");
+  if (adminPanel) {
+        document.body.appendChild(adminPanel);
+        }
+  
   const closeAdmin = document.getElementById("close-admin");
   const adminUserSearch = document.getElementById("admin-user-search");
   const adminSearchButton = document.getElementById("admin-search-button");
