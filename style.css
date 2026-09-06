@@ -2426,10 +2426,12 @@ flex-direction: column !important;
 }
 
 #create-flip-button {
-margin-left: 0 !important;
-align-self: flex-start !important;
+      margin-left: auto !important;
+        margin-top: 65px !important;
+          align-self: flex-start !important;
+          }
 }
-}
+
 /* =========================================
 FINAL COINFLIPS HEADER LAYOUT FIX
 ========================================= */
