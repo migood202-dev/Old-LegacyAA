@@ -2513,3 +2513,14 @@ right: auto !important;
 margin-top: 25px !important;
 }
 }
+/* Coinflip top navigation position */
+
+.live-flips-page .flips-title-area {
+    padding-left: 25px;
+    }
+
+    .live-flips-page .back-home-button {
+        position: relative;
+            left: 0;
+                margin: 0;
+                }
