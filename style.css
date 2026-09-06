@@ -2523,21 +2523,15 @@ margin-top: 25px !important;
             right: 30px !important;
                 z-index: 10;
                 }
-/* Back to Home beside Old Legacys logo */
+/* Independent Back to Home button */
 
-.side-menu-logo {
-    position: relative;
-    }
+#back-home-button {
+    position: fixed !important;
+        top: 18px !important;
+            left: 265px !important;
 
-    .side-menu-logo #back-home-button {
-        position: absolute !important;
-            left: calc(100% + 12px) !important;
-                top: 50% !important;
+                margin: 0 !important;
+                    white-space: nowrap !important;
 
-                    transform: translateY(-50%) !important;
-
-                        margin: 0 !important;
-                            white-space: nowrap !important;
-
-                                z-index: 100 !important;
-                                }
+                        z-index: 1000 !important;
+                        }
