@@ -3049,3 +3049,20 @@ background: rgba(42, 115, 185, 0.9);
                                                     .create-flip-item img {
                                                         border-radius: 8px;
                                                         }
+/* =====================================
+   CREATE FLIP — SELECTED ITEMS
+   ===================================== */
+
+   .create-flip-item.selected {
+       border-color: rgba(70, 170, 255, 0.95) !important;
+
+           background: rgba(25, 110, 220, 0.22) !important;
+
+               box-shadow:
+                       0 0 18px rgba(40, 145, 255, 0.35);
+                       }
+
+
+                       .create-flip-item.selected img {
+                           transform: scale(0.97);
+                           }
