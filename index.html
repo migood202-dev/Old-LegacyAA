@@ -349,26 +349,55 @@
 ‹
 </button>
 </aside>
-<button id="back-home-button" class="back-home-button">
-        Back to Home
-              </button>
-
-              <header>
-              <div class="logo">Old Legacys</div>
-
-              <nav>
-              <a href="#">Home</a>
-              <a href="#">Items</a>
-              <a href="#">Trades</a>
-              <a href="#">Leaderboard</a>
-              </nav>
-
-              <button class="login" id="auth-button">Login</button>
-
-              <button class="profile-button" id="profile-button">
-              Profile
-              </button>
-
+<!-- ================================
+      MAIN HEADER
+      ================================ -->
+      
+      <header class="site-header">
+      
+          <!-- LEFT: PAGE TITLE + BACK BUTTON -->
+              <div class="header-left">
+              
+                      <div class="logo">
+                                  Old Legacys
+                                          </div>
+                                          
+                                                  <button id="back-home-button" class="back-home-button">
+                                                              Back to Home
+                                                                      </button>
+                                                                      
+                                                                          </div>
+                                                                          
+                                                                          
+                                                                              <!-- CENTER NAVIGATION -->
+                                                                                  <nav class="main-navigation">
+                                                                                  
+                                                                                          <a href="#">Home</a>
+                                                                                                  <a href="#">Items</a>
+                                                                                                          <a href="#">Trades</a>
+                                                                                                                  <a href="#">Leaderboard</a>
+                                                                                                                  
+                                                                                                                      </nav>
+                                                                                                                      
+                                                                                                                      
+                                                                                                                          <!-- RIGHT: ACCOUNT BUTTONS -->
+                                                                                                                              <div class="header-actions">
+                                                                                                                              
+                                                                                                                                      <button class="login" id="auth-button">
+                                                                                                                                                  Login
+                                                                                                                                                          </button>
+                                                                                                                                                          
+                                                                                                                                                                  <button class="profile-button" id="profile-button">
+                                                                                                                                                                              Profile
+                                                                                                                                                                                      </button>
+                                                                                                                                                                                      
+                                                                                                                                                                                              <div class="balance">
+                                                                                                                                                                                                          🪙 <span>1,000</span>
+                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                  
+                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                      
+                                                                                                                                                                                                                      </header>
               <div id="login-panel" class="login-panel">
 
               <div class="login-box">
@@ -1377,30 +1406,35 @@ Create one to get started!
   }
 });
                                                                                                                                                                                                                                               });
-                                                                                                                                                                                            // Inventory Panel Controls
-                                                                                                                                                                                            const inventoryButton = document.getElementById("inventory-button");
-                                                                                                                                                                                            const inventoryPanel = document.getElementById("inventory-panel");
-                                                                                                                                                                                            const inventoryClose = document.getElementById("inventory-close");
+// =========================================
+// INVENTORY PANEL CONTROLS
+// =========================================
 
-                                                                                                                                                                                            if (inventoryButton && inventoryPanel) {
-                                                                                                                                                                                              inventoryButton.addEventListener("click", () => {
-                                                                                                                                                                                                  inventoryPanel.classList.toggle("open");
-                                                                                                                                                                                                    });
-                                                                                                                                                                                                    }
+const inventoryButton = document.getElementById("inventory-button");
+const inventoryPanel = document.getElementById("inventory-panel");
+const inventoryClose = document.getElementById("inventory-close");
 
-                                                                                                                                                                                                    if (inventoryClose && inventoryPanel) {
-                                                                                                                                                                                                        inventoryClose.addEventListener("click", () => {
-                                                                                                                                                                                                            inventoryPanel.classList.remove("open");
-                                                                                                                                                                                                                inventoryPanel.style.display = "none";
-                                                                                                                                                                                                                  });
-                                                                                                                                                                                                                  }
 
-                                                                                                                                                                                                                  if (inventoryButton && inventoryPanel) {
-                                                                                                                                                                                                                    inventoryButton.addEventListener("click", () => {
-                                                                                                                                                                                                                        inventoryPanel.style.display = "";
-                                                                                                                                                                                                                            inventoryPanel.classList.add("open");
-                                                                                                                                                                                                                              });
-                                                                                                                                                                                                                              }
+if (inventoryButton && inventoryPanel) {
+
+    inventoryButton.addEventListener("click", () => {
+
+            inventoryPanel.classList.add("open");
+
+                });
+
+                }
+
+
+                if (inventoryClose && inventoryPanel) {
+
+                    inventoryClose.addEventListener("click", () => {
+
+                            inventoryPanel.classList.remove("open");
+
+                                });
+
+                                }
                                                                                                                                                                                                                               /* =========================================
                                                                                                                                                                                                                                  ADMIN ADD ITEM SYSTEM
                                                                                                                                                                                                                                     ========================================= */

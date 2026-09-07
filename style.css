@@ -2383,266 +2383,204 @@ transform: translateY(-2px);
 
 background: rgba(42, 115, 185, 0.9);
 }
-/* ===== FIX COINFLIP HEADER LAYOUT ===== */
-
-.flips-top-bar {
-display: none !important;
-}
-
-.flips-lobby-header {
-display: flex !important;
-justify-content: space-between !important;
-align-items: flex-start !important;
-gap: 30px !important;
-width: 100% !important;
-}
-
-.flips-title-area {
-display: flex !important;
-flex-direction: column !important;
-align-items: flex-start !important;
-gap: 12px !important;
-}
-
-.flips-title-area .back-home-button {
-display: block !important;
-margin: 0 0 8px 0 !important;
-}
-
-.flips-title-area .game-area-label {
-display: inline-flex !important;
-}
-
-#create-flip-button {
-margin-left: auto !important;
-align-self: center !important;
-flex-shrink: 0 !important;
-}
-
-/* Keep the lobby header neat on smaller screens */
-@media (max-width: 700px) {
-.flips-lobby-header {
-flex-direction: column !important;
-}
-
-#create-flip-button {
-      margin-left: auto !important;
-        margin-top: 65px !important;
-          align-self: flex-start !important;
-          }
-}
-
-/* =========================================
-FINAL COINFLIPS HEADER LAYOUT FIX
-========================================= */
-
-.live-flips-page .flips-lobby {
-position: relative !important;
-display: block !important;
-
-width: 100% !important;
-box-sizing: border-box !important;
-
-padding: 45px 55px 25px 55px !important;
-}
+/* =====================================================
+   FINAL OLD LEGACYS PAGE LAYOUT
+      ONE PLACE TO CONTROL ALL MAIN BUTTON POSITIONS
+      ===================================================== */
 
-/* Keep the heading area vertical */
-.live-flips-page .flips-title-area {
-display: block !important;
-
-width: auto !important;
-margin: 0 !important;
-padding: 0 !important;
-}
 
-/* BACK TO HOME — its own row above everything */
-.live-flips-page .back-home-button,
-.live-flips-page #back-home-button {
-position: relative !important;
+      /* =====================================================
+         1. MAIN HEADER
+         ===================================================== */
 
-display: inline-flex !important;
-align-items: center !important;
-justify-content: center !important;
+         .site-header {
+             position: relative !important;
 
-margin: 0 0 22px 0 !important;
+                 height: 80px !important;
 
-z-index: 10 !important;
-}
+                     display: flex !important;
+                         align-items: center !important;
 
-/* GARDEN VALLEY — underneath Back to Home */
-.live-flips-page .game-area-label {
-display: inline-flex !important;
+                             box-sizing: border-box !important;
 
-margin: 0 0 12px 0 !important;
-}
+                                 /* CHANGE THIS NUMBER TO MOVE THE WHOLE LEFT HEADER AREA */
+                                     padding-left: 250px !important;
 
-/* Coinflips title */
-.live-flips-page .flips-title-area h1 {
-margin: 0 0 10px 0 !important;
-}
+                                         padding-right: 30px !important;
 
-/* Description */
-.live-flips-page .flips-title-area p {
-margin: 0 !important;
-}
+                                             background: #0b111b !important;
 
-/* CREATE FLIP — TOP RIGHT CORNER */
-.live-flips-page .create-flip-button {
-position: absolute !important;
+                                                 border-bottom: 1px solid #1c2938 !important;
 
-top: 35px !important;
-right: 55px !important;
+                                                     z-index: 100 !important;
+                                                     }
 
-margin: 0 !important;
 
-z-index: 20 !important;
-}
+                                                     /* =====================================================
+                                                        2. LEFT SIDE
+                                                           OLD LEGACYS + BACK TO HOME
+                                                           ===================================================== */
 
+                                                           .header-left {
+                                                               position: relative !important;
 
-/* Tablet and smaller screens */
-@media (max-width: 900px) {
+                                                                   display: flex !important;
+                                                                       align-items: center !important;
 
-.live-flips-page .flips-lobby {
-padding: 35px 35px 25px 55px !important;
-}
+                                                                           gap: 18px !important;
 
-.live-flips-page .create-flip-button {
-position: relative !important;
+                                                                               flex-shrink: 0 !important;
+                                                                               }
 
-top: auto !important;
-right: auto !important;
 
-margin-top: 25px !important;
-}
-}
-/* Fix Create Flip position */
+                                                                               /* OLD LEGACYS LOGO */
 
-#create-flip-button {
-    position: absolute !important;
-        top: 85px !important;
-            right: 30px !important;
-                z-index: 10;
-                }
+                                                                               .header-left .logo {
+                                                                                   position: static !important;
 
-/* =========================================
-   CLEAN MAIN HEADER LAYOUT
-   ========================================= */
+                                                                                       margin: 0 !important;
 
-   .site-header {
-       height: 80px !important;
-           display: flex !important;
-               align-items: center !important;
+                                                                                           font-size: 25px !important;
+                                                                                               font-weight: bold !important;
 
-                   background: #0b111b !important;
-                       border-bottom: 1px solid #1c2938 !important;
+                                                                                                   color: #55aaff !important;
 
-                           /* Leaves room for the left sidebar */
-                               padding: 0 30px 0 255px !important;
+                                                                                                       white-space: nowrap !important;
 
-                                   gap: 25px !important;
-                                   }
+                                                                                                           transform: none !important;
+                                                                                                           }
 
 
-                                   /* LEFT SIDE — LOGO + BACK BUTTON */
+                                                                                                           /* =====================================================
+                                                                                                              3. BACK TO HOME BUTTON
+                                                                                                              ===================================================== */
 
-                                   .header-left {
-                                       display: flex !important;
-                                           align-items: center !important;
-                                               gap: 18px !important;
+                                                                                                              #back-home-button,
+                                                                                                              .back-home-button {
+                                                                                                                  position: static !important;
 
-                                                   flex-shrink: 0 !important;
-                                                   }
+                                                                                                                      display: inline-flex !important;
 
-                                                   .header-left .logo {
-                                                       font-size: 25px !important;
-                                                           font-weight: bold !important;
-                                                               color: #55aaff !important;
+                                                                                                                          align-items: center !important;
+                                                                                                                              justify-content: center !important;
 
-                                                                   white-space: nowrap !important;
-                                                                   }
+                                                                                                                                  margin: 0 !important;
 
+                                                                                                                                      white-space: nowrap !important;
 
-                                                                   /* BACK TO HOME */
+                                                                                                                                          flex-shrink: 0 !important;
 
-                                                                   .back-home-button {
-                                                                       position: static !important;
+                                                                                                                                              z-index: auto !important;
+                                                                                                                                              }
 
-                                                                           padding: 12px 18px !important;
 
-                                                                               border-radius: 10px !important;
+                                                                                                                                              /* =====================================================
+                                                                                                                                                 4. CENTER NAVIGATION
+                                                                                                                                                 ===================================================== */
 
-                                                                                   white-space: nowrap !important;
-                                                                                   }
+                                                                                                                                                 .main-navigation {
+                                                                                                                                                     display: flex !important;
 
+                                                                                                                                                         align-items: center !important;
+                                                                                                                                                             justify-content: center !important;
 
-                                                                                   /* CENTER NAVIGATION */
+                                                                                                                                                                 flex: 1 !important;
 
-                                                                                   .main-navigation {
-                                                                                       display: flex !important;
-                                                                                           align-items: center !important;
-                                                                                               justify-content: center !important;
+                                                                                                                                                                     gap: 28px !important;
 
-                                                                                                   flex: 1 !important;
+                                                                                                                                                                         margin: 0 20px !important;
+                                                                                                                                                                         }
 
-                                                                                                       gap: 28px !important;
-                                                                                                       }
 
-                                                                                                       .main-navigation a {
-                                                                                                           margin: 0 !important;
-                                                                                                               white-space: nowrap !important;
-                                                                                                               }
+                                                                                                                                                                         .main-navigation a {
+                                                                                                                                                                             margin: 0 !important;
 
+                                                                                                                                                                                 white-space: nowrap !important;
+                                                                                                                                                                                 }
 
-                                                                                                               /* RIGHT SIDE — LOGIN / PROFILE / BALANCE */
 
-                                                                                                               .header-actions {
-                                                                                                                   display: flex !important;
-                                                                                                                       align-items: center !important;
+                                                                                                                                                                                 /* =====================================================
+                                                                                                                                                                                    5. RIGHT SIDE
+                                                                                                                                                                                       LOGIN + PROFILE + BALANCE
+                                                                                                                                                                                       ===================================================== */
 
-                                                                                                                           gap: 10px !important;
+                                                                                                                                                                                       .header-actions {
+                                                                                                                                                                                           display: flex !important;
 
-                                                                                                                               flex-shrink: 0 !important;
-                                                                                                                               }
+                                                                                                                                                                                               align-items: center !important;
 
-                                                                                                                               .header-actions .login,
-                                                                                                                               .header-actions .profile-button {
-                                                                                                                                   margin: 0 !important;
-                                                                                                                                   }
+                                                                                                                                                                                                   gap: 10px !important;
 
+                                                                                                                                                                                                       flex-shrink: 0 !important;
+                                                                                                                                                                                                       }
 
-                                                                                                                                   /* TABLET RESPONSIVENESS */
 
-                                                                                                                                   @media (max-width: 1100px) {
-
-                                                                                                                                       .site-header {
-                                                                                                                                               padding-left: 255px !important;
-                                                                                                                                                       gap: 15px !important;
-                                                                                                                                                           }
-
-                                                                                                                                                               .main-navigation {
-                                                                                                                                                                       gap: 16px !important;
-                                                                                                                                                                           }
-
-                                                                                                                                                                               .header-left {
-                                                                                                                                                                                       gap: 10px !important;
-                                                                                                                                                                                           }
-
-                                                                                                                                                                                               .back-home-button {
-                                                                                                                                                                                                       padding: 10px 13px !important;
-                                                                                                                                                                                                           }
+                                                                                                                                                                                                       .header-actions .login,
+                                                                                                                                                                                                       .header-actions .profile-button {
+                                                                                                                                                                                                           margin: 0 !important;
                                                                                                                                                                                                            }
 
 
-                                                                                                                                                                                                           /* SMALLER TABLET */
+                                                                                                                                                                                                           /* =====================================================
+                                                                                                                                                                                                              6. CREATE FLIP BUTTON
+                                                                                                                                                                                                              ===================================================== */
 
-                                                                                                                                                                                                           @media (max-width: 850px) {
+                                                                                                                                                                                                              /*
+                                                                                                                                                                                                                 THIS IS THE MAIN POSITION CONTROL FOR CREATE FLIP
 
-                                                                                                                                                                                                               .main-navigation {
-                                                                                                                                                                                                                       display: none !important;
-                                                                                                                                                                                                                           }
+                                                                                                                                                                                                                    CHANGE:
+                                                                                                                                                                                                                       top:    moves it UP or DOWN
+                                                                                                                                                                                                                          right:  moves it LEFT or RIGHT
+                                                                                                                                                                                                                          */
 
-                                                                                                                                                                                                                               .site-header {
-                                                                                                                                                                                                                                       padding-left: 255px !important;
-                                                                                                                                                                                                                                           }
+                                                                                                                                                                                                                          #create-flip-button {
+                                                                                                                                                                                                                              position: absolute !important;
 
-                                                                                                                                                                                                                                           }
+                                                                                                                                                                                                                                  top: 100px !important;
+
+                                                                                                                                                                                                                                      right: 30px !important;
+
+                                                                                                                                                                                                                                          margin: 0 !important;
+
+                                                                                                                                                                                                                                              z-index: 50 !important;
+                                                                                                                                                                                                                                              }
+
+
+                                                                                                                                                                                                                                              /* =====================================================
+                                                                                                                                                                                                                                                 7. RESPONSIVE TABLET FIX
+                                                                                                                                                                                                                                                 ===================================================== */
+
+                                                                                                                                                                                                                                                 @media (max-width: 1100px) {
+
+                                                                                                                                                                                                                                                     .site-header {
+                                                                                                                                                                                                                                                             padding-left: 250px !important;
+                                                                                                                                                                                                                                                                     padding-right: 25px !important;
+                                                                                                                                                                                                                                                                         }
+
+                                                                                                                                                                                                                                                                             .header-left {
+                                                                                                                                                                                                                                                                                     gap: 14px !important;
+                                                                                                                                                                                                                                                                                         }
+
+                                                                                                                                                                                                                                                                                             .main-navigation {
+                                                                                                                                                                                                                                                                                                     gap: 18px !important;
+                                                                                                                                                                                                                                                                                                             margin: 0 15px !important;
+                                                                                                                                                                                                                                                                                                                 }
+
+                                                                                                                                                                                                                                                                                                                 }
+
+
+                                                                                                                                                                                                                                                                                                                 /* =====================================================
+                                                                                                                                                                                                                                                                                                                    SMALL TABLET
+                                                                                                                                                                                                                                                                                                                    ===================================================== */
+
+                                                                                                                                                                                                                                                                                                                    @media (max-width: 850px) {
+
+                                                                                                                                                                                                                                                                                                                        .main-navigation {
+                                                                                                                                                                                                                                                                                                                                display: none !important;
+                                                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                                                        .site-header {
+                                                                                                                                                                                                                                                                                                                                                padding-left: 250px !important;
+                                                                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                                                                    }
