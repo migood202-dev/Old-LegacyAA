@@ -736,6 +736,66 @@ Create one to get started!
   const backHomeButton = document.getElementById("back-home-button");
   const liveFlipsPage = document.getElementById("live-flips-page");
   const heroSection = document.querySelector(".hero");
+  // =====================================
+  // CREATE FLIP PANEL
+  // =====================================
+
+  const createFlipButton = document.getElementById("create-flip-button");
+  const emptyCreateFlipButton = document.getElementById("empty-create-flip-button");
+
+  const createFlipPanel = document.getElementById("create-flip-panel");
+  const closeCreateFlipButton = document.getElementById("close-create-flip");
+
+
+  function openCreateFlipPanel() {
+
+      if (createFlipPanel) {
+              createFlipPanel.classList.add("open");
+                  }
+
+                  }
+
+
+                  function closeCreateFlipPanel() {
+
+                      if (createFlipPanel) {
+                              createFlipPanel.classList.remove("open");
+                                  }
+
+                                  }
+
+
+                                  if (createFlipButton) {
+
+                                      createFlipButton.addEventListener("click", () => {
+
+                                              openCreateFlipPanel();
+
+                                                  });
+
+                                                  }
+
+
+                                                  if (emptyCreateFlipButton) {
+
+                                                      emptyCreateFlipButton.addEventListener("click", () => {
+
+                                                              openCreateFlipPanel();
+
+                                                                  });
+
+                                                                  }
+
+
+                                                                  if (closeCreateFlipButton) {
+
+                                                                      closeCreateFlipButton.addEventListener("click", () => {
+
+                                                                              closeCreateFlipPanel();
+
+                                                                                  });
+
+                                                                                  }
   
 
   
