@@ -838,6 +838,40 @@ Create one to get started!
                                                                                   });
 
                                                                                   }
+                                                                                  // =====================================
+                                                                                  // CREATE FLIP SIDE SELECTION
+                                                                                  // =====================================
+
+                                                                                  const flipSideButtons = document.querySelectorAll(".flip-side-button");
+
+                                                                                  let selectedFlipSide = "heads";
+
+
+                                                                                  flipSideButtons.forEach((button) => {
+
+                                                                                      button.addEventListener("click", () => {
+
+                                                                                              // Remove selection from both buttons
+                                                                                                      flipSideButtons.forEach((otherButton) => {
+
+                                                                                                                  otherButton.classList.remove("selected");
+
+                                                                                                                          });
+
+
+                                                                                                                                  // Select the button that was clicked
+                                                                                                                                          button.classList.add("selected");
+
+
+                                                                                                                                                  // Save the selected side
+                                                                                                                                                          selectedFlipSide = button.dataset.side;
+
+
+                                                                                                                                                                  console.log("Selected flip side:", selectedFlipSide);
+
+                                                                                                                                                                      });
+
+                                                                                                                                                                      });
   
 
   

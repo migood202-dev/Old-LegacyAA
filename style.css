@@ -3028,3 +3028,19 @@ background: rgba(42, 115, 185, 0.9);
 
                                                                                                                                                                                                                                                                       border-color: rgba(110, 200, 255, 0.65);
                                                                                                                                                                                                                                                                       }
+/* Red glow when TAILS is selected */
+
+.flip-side-button[data-side="tails"].selected {
+    color: white;
+
+        background: linear-gradient(
+                135deg,
+                        rgba(220, 45, 60, 0.9),
+                                rgba(255, 80, 80, 0.7)
+                                    );
+
+                                        border-color: rgba(255, 120, 120, 0.9);
+
+                                            box-shadow:
+                                                    0 0 20px rgba(255, 50, 50, 0.35);
+                                                    }
