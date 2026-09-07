@@ -349,6 +349,43 @@
 ‹
 </button>
 </aside>
+<!-- =====================================
+     INVENTORY PANEL
+     ===================================== -->
+
+     <div id="inventory-panel" class="inventory-panel">
+
+         <div class="inventory-header">
+
+                 <div>
+
+                             <h2>Inventory</h2>
+
+                                         <p>Your collected items</p>
+
+                                                 </div>
+
+                                                         <button
+                                                                     id="inventory-close"
+                                                                                 class="inventory-close"
+                                                                                             aria-label="Close Inventory"
+                                                                                                     >
+                                                                                                                 ×
+                                                                                                                         </button>
+
+                                                                                                                             </div>
+
+
+                                                                                                                                 <div
+                                                                                                                                         id="inventory-content"
+                                                                                                                                                 class="inventory-content"
+                                                                                                                                                     >
+                                                                                                                                                         </div>
+
+                                                                                                                                                         </div>
+
+
+                                                                                                                                                    
 <!-- ================================
       MAIN HEADER
       ================================ -->
@@ -431,12 +468,6 @@
               </div>
 
               </div>
-
-              <div class="balance">
-              🪙 <span>1,000</span>
-              </div>
-
-              </header>
 
 <section class="hero">
 <div class="hero-content">
@@ -1419,22 +1450,27 @@ if (inventoryButton && inventoryPanel) {
 
     inventoryButton.addEventListener("click", () => {
 
-            inventoryPanel.classList.add("open");
+            // Restore the panel if the sidebar previously hid it
+                    inventoryPanel.style.display = "";
 
-                });
+                            // Open the panel
+                                    inventoryPanel.classList.add("open");
 
-                }
+                                        });
+
+                                        }
 
 
-                if (inventoryClose && inventoryPanel) {
+                                        if (inventoryClose && inventoryPanel) {
 
-                    inventoryClose.addEventListener("click", () => {
+                                            inventoryClose.addEventListener("click", () => {
 
-                            inventoryPanel.classList.remove("open");
+                                                    // Close the panel
+                                                            inventoryPanel.classList.remove("open");
 
-                                });
+                                                                });
 
-                                }
+                                                                }
                                                                                                                                                                                                                               /* =========================================
                                                                                                                                                                                                                                  ADMIN ADD ITEM SYSTEM
                                                                                                                                                                                                                                     ========================================= */
