@@ -2911,3 +2911,120 @@ background: rgba(42, 115, 185, 0.9);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
+/* =====================================
+   CREATE FLIP — SIDE SELECTION
+   ===================================== */
+
+   .flip-side-section {
+       margin-bottom: 20px;
+       }
+
+       .flip-side-label {
+           display: block;
+
+               margin-bottom: 10px;
+
+                   font-size: 13px;
+                       font-weight: 600;
+
+                           color: rgba(220, 230, 245, 0.75);
+                           }
+
+                           .flip-side-buttons {
+                               display: flex;
+                                   gap: 12px;
+                                   }
+
+                                   .flip-side-button {
+                                       flex: 1;
+
+                                           padding: 16px 20px;
+
+                                               border-radius: 12px;
+
+                                                   border: 1px solid rgba(255, 255, 255, 0.1);
+
+                                                       background: rgba(255, 255, 255, 0.045);
+
+                                                           color: rgba(220, 230, 245, 0.75);
+
+                                                               font-size: 16px;
+                                                                   font-weight: 800;
+
+                                                                       letter-spacing: 1px;
+
+                                                                           cursor: pointer;
+
+                                                                               transition:
+                                                                                       transform 0.18s ease,
+                                                                                               background 0.18s ease,
+                                                                                                       border-color 0.18s ease,
+                                                                                                               box-shadow 0.18s ease;
+                                                                                                               }
+
+                                                                                                               .flip-side-button:hover {
+                                                                                                                   transform: translateY(-2px);
+
+                                                                                                                       border-color: rgba(75, 160, 255, 0.5);
+
+                                                                                                                           background: rgba(45, 110, 190, 0.12);
+                                                                                                                           }
+
+
+                                                                                                                           /* Selected Heads / Tails */
+
+                                                                                                                           .flip-side-button.selected {
+                                                                                                                               color: white;
+
+                                                                                                                                   background: linear-gradient(
+                                                                                                                                           135deg,
+                                                                                                                                                   rgba(22, 119, 255, 0.85),
+                                                                                                                                                           rgba(0, 168, 255, 0.7)
+                                                                                                                                                               );
+
+                                                                                                                                                                   border-color: rgba(110, 195, 255, 0.9);
+
+                                                                                                                                                                       box-shadow:
+                                                                                                                                                                               0 0 20px rgba(45, 150, 255, 0.28);
+                                                                                                                                                                               }
+
+
+                                                                                                                                                                               /* =====================================
+                                                                                                                                                                                  CREATE FLIP — SELECT ALL
+                                                                                                                                                                                  ===================================== */
+
+                                                                                                                                                                                  .selected-items-info {
+                                                                                                                                                                                      display: flex;
+                                                                                                                                                                                          flex-direction: column;
+                                                                                                                                                                                              gap: 3px;
+                                                                                                                                                                                              }
+
+                                                                                                                                                                                              .select-all-flip-items {
+                                                                                                                                                                                                  padding: 9px 14px;
+
+                                                                                                                                                                                                      border-radius: 9px;
+
+                                                                                                                                                                                                          border: 1px solid rgba(95, 190, 255, 0.35);
+
+                                                                                                                                                                                                              background: rgba(30, 110, 220, 0.12);
+
+                                                                                                                                                                                                                  color: #8fd3ff;
+
+                                                                                                                                                                                                                      font-size: 12px;
+                                                                                                                                                                                                                          font-weight: 700;
+
+                                                                                                                                                                                                                              cursor: pointer;
+
+                                                                                                                                                                                                                                  transition:
+                                                                                                                                                                                                                                          background 0.18s ease,
+                                                                                                                                                                                                                                                  transform 0.18s ease,
+                                                                                                                                                                                                                                                          border-color 0.18s ease;
+                                                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                                                          .select-all-flip-items:hover {
+                                                                                                                                                                                                                                                              transform: translateY(-1px);
+
+                                                                                                                                                                                                                                                                  background: rgba(30, 130, 240, 0.22);
+
+                                                                                                                                                                                                                                                                      border-color: rgba(110, 200, 255, 0.65);
+                                                                                                                                                                                                                                                                      }
