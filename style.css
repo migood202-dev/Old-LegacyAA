@@ -2523,18 +2523,7 @@ margin-top: 25px !important;
             right: 30px !important;
                 z-index: 10;
                 }
-/* Independent Back to Home button */
 
-#back-home-button {
-    position: fixed !important;
-        top: 18px !important;
-            left: 265px !important;
-
-                margin: 0 !important;
-                    white-space: nowrap !important;
-
-                        z-index: 1000 !important;
-                        }
 /* =========================================
    CLEAN MAIN HEADER LAYOUT
    ========================================= */
@@ -2657,40 +2646,3 @@ margin-top: 25px !important;
                                                                                                                                                                                                                                            }
 
                                                                                                                                                                                                                                            }
-/* =========================================
-   FINAL LOGO + BACK BUTTON FIX
-   ========================================= */
-
-   /* Force Old Legacys to stay inside the new header layout */
-   .site-header .header-left .logo {
-       position: static !important;
-           left: auto !important;
-               top: auto !important;
-
-                   margin-left: 20px !important;
-
-                       transform: none !important;
-                       }
-
-
-                       /* Make the Back to Home button stay with the page,
-                          NOT follow the screen when scrolling */
-                          #back-home-button {
-                              position: static !important;
-
-                                  top: auto !important;
-                                      left: auto !important;
-                                          right: auto !important;
-                                              bottom: auto !important;
-
-                                                  transform: none !important;
-                                                  }
-
-
-                                                  /* Keep logo and button neatly beside each other */
-                                                  .site-header .header-left {
-                                                      display: flex !important;
-                                                          align-items: center !important;
-
-                                                              position: static !important;
-                                                              }
