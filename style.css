@@ -3044,3 +3044,8 @@ background: rgba(42, 115, 185, 0.9);
                                             box-shadow:
                                                     0 0 20px rgba(255, 50, 50, 0.35);
                                                     }
+                                                    /* Slightly rounded Create Flip item images */
+
+                                                    .create-flip-item img {
+                                                        border-radius: 8px;
+                                                        }
