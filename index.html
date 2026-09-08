@@ -787,14 +787,88 @@ document.querySelector(".create-flip-items");
 
 function openCreateFlipPanel() {
 
-if (createFlipPanel) {
+            const panelTitle =
+                    document.getElementById(
+                                "flip-panel-title"
+                                        );
 
-createFlipPanel.classList.add("open");
+                                            const panelDescription =
+                                                    document.getElementById(
+                                                                "flip-panel-description"
+                                                                        );
 
-loadCreateFlipInventory();
+                                                                            const confirmButtonText =
+                                                                                    document.getElementById(
+                                                                                                "confirm-flip-button-text"
+                                                                                                        );
 
-}
 
+                                                                                                            if (
+                                                                                                                    window.flipPanelMode === "join"
+                                                                                                                        ) {
+
+                                                                                                                                if (panelTitle) {
+
+                                                                                                                                            panelTitle.textContent =
+                                                                                                                                                            "Join This Flip";
+
+                                                                                                                                                                    }
+
+
+                                                                                                                                                                            if (panelDescription) {
+
+                                                                                                                                                                                        panelDescription.textContent =
+                                                                                                                                                                                                        "Select items from your inventory to join this flip.";
+
+                                                                                                                                                                                                                }
+
+
+                                                                                                                                                                                                                        if (confirmButtonText) {
+
+                                                                                                                                                                                                                                    confirmButtonText.textContent =
+                                                                                                                                                                                                                                                    "Join Flip";
+
+                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                                } else {
+
+                                                                                                                                                                                                                                                                        if (panelTitle) {
+
+                                                                                                                                                                                                                                                                                    panelTitle.textContent =
+                                                                                                                                                                                                                                                                                                    "Create a Flip";
+
+                                                                                                                                                                                                                                                                                                            }
+
+
+                                                                                                                                                                                                                                                                                                                    if (panelDescription) {
+
+                                                                                                                                                                                                                                                                                                                                panelDescription.textContent =
+                                                                                                                                                                                                                                                                                                                                                "Select items from your inventory.";
+
+                                                                                                                                                                                                                                                                                                                                                        }
+
+
+                                                                                                                                                                                                                                                                                                                                                                if (confirmButtonText) {
+
+                                                                                                                                                                                                                                                                                                                                                                            confirmButtonText.textContent =
+                                                                                                                                                                                                                                                                                                                                                                                            "Create Flip";
+
+                                                                                                                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                                                                                                                        }
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                            if (createFlipPanel) {
+
+                                                                                                                                                                                                                                                                                                                                                                                                                    createFlipPanel.classList.add(
+                                                                                                                                                                                                                                                                                                                                                                                                                                "open"
+                                                                                                                                                                                                                                                                                                                                                                                                                                        );
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                loadCreateFlipInventory();
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
 }
 function closeCreateFlipPanel() {
 
