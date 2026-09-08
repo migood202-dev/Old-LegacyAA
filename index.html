@@ -1526,14 +1526,86 @@ const confirmCreateFlipButton =
                         async () => {
                                 if (window.flipPanelMode === "join") {
 
-                                            alert(
-                                                    "Join Mode is working!"
-                                                        );
+                                            const selectedItems =
+                                                    createFlipItemsContainer.querySelectorAll(
+                                                                ".create-flip-item.selected"
+                                                                        );
 
-                                                            return;
 
-                                                            
-                                }
+                                                                            if (selectedItems.length === 0) {
+
+                                                                                    alert(
+                                                                                                "Select at least one item before joining this flip."
+                                                                                                        );
+
+                                                                                                                return;
+
+                                                                                                                    }
+
+
+                                                                                                                        let selectedValue = 0;
+
+
+                                                                                                                            selectedItems.forEach(
+                                                                                                                                    (item) => {
+
+                                                                                                                                                selectedValue += Number(
+                                                                                                                                                                item.dataset.itemValue
+                                                                                                                                                                            );
+
+                                                                                                                                                                                    }
+                                                                                                                                                                                        );
+
+
+                                                                                                                                                                                            const {
+                                                                                                                                                                                                    data: flip,
+                                                                                                                                                                                                            error: flipError
+                                                                                                                                                                                                                } = await supabaseClient
+                                                                                                                                                                                                                        .from("flips")
+                                                                                                                                                                                                                                .select("*")
+                                                                                                                                                                                                                                        .eq(
+                                                                                                                                                                                                                                                    "id",
+                                                                                                                                                                                                                                                                window.selectedJoinFlipId
+                                                                                                                                                                                                                                                                        )
+                                                                                                                                                                                                                                                                                .single();
+
+
+                                                                                                                                                                                                                                                                                    if (flipError || !flip) {
+
+                                                                                                                                                                                                                                                                                            console.error(
+                                                                                                                                                                                                                                                                                                        "Unable to find flip:",
+                                                                                                                                                                                                                                                                                                                    flipError
+                                                                                                                                                                                                                                                                                                                            );
+
+                                                                                                                                                                                                                                                                                                                                    alert(
+                                                                                                                                                                                                                                                                                                                                                "This flip is no longer available."
+                                                                                                                                                                                                                                                                                                                                                        );
+
+                                                                                                                                                                                                                                                                                                                                                                await loadActiveFlips();
+
+                                                                                                                                                                                                                                                                                                                                                                        return;
+
+                                                                                                                                                                                                                                                                                                                                                                            }
+
+
+                                                                                                                                                                                                                                                                                                                                                                                console.log(
+                                                                                                                                                                                                                                                                                                                                                                                        "Join validation:",
+                                                                                                                                                                                                                                                                                                                                                                                                {
+                                                                                                                                                                                                                                                                                                                                                                                                            flip,
+                                                                                                                                                                                                                                                                                                                                                                                                                        selectedValue
+                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                                                    );
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                        alert(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                "Join items selected successfully! Value: " +
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        selectedValue
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            );
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                return;
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                
 
                                     const selectedItems =
                                                     createFlipItemsContainer.querySelectorAll(
