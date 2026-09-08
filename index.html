@@ -1076,16 +1076,35 @@ selectedItemsTotal.textContent = totalValue.toLocaleString();
 }
 
 function updateSelectAllButton() {
-if (!selectAllItemsButton) return;
 
-const totalItems = createFlipItemButtons.length;
-const selectedItems = getSelectedCreateFlipItems().length;
+            if (!selectAllItemsButton) return;
 
-selectAllItemsButton.textContent =
-totalItems > 0 && selectedItems === totalItems
-? "Deselect All"
-: "Select All";
-}
+
+                if (window.flipPanelMode === "join") {
+
+                        selectAllItemsButton.textContent =
+                                    "Auto Fill";
+
+                                            return;
+
+                                                }
+
+
+                                                    const totalItems =
+                                                            createFlipItemButtons.length;
+
+                                                                const selectedItems =
+                                                                        getSelectedCreateFlipItems().length;
+
+
+                                                                            selectAllItemsButton.textContent =
+                                                                                    totalItems > 0 &&
+                                                                                            selectedItems === totalItems
+                                                                                                        ? "Deselect All"
+                                                                                                                    : "Select All";
+
+                                                                                                                    }
+
 
 function updateCreateFlipSelectionUI() {
 updateSelectedItemsCount();
