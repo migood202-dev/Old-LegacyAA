@@ -872,6 +872,7 @@ error
 .from("inventories")
 .select("id, item_name, item_value")
 .eq("user_id", user.id)
+.is("flip_id", null)
 .order("item_value", {
 ascending: false
 });
