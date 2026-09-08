@@ -1524,6 +1524,16 @@ const confirmCreateFlipButton =
         confirmCreateFlipButton.addEventListener(
                 "click",
                         async () => {
+                                if (window.flipPanelMode === "join") {
+
+                                            alert(
+                                                    "Join Mode is working!"
+                                                        );
+
+                                                            return;
+
+                                                            
+                                }
 
                                     const selectedItems =
                                                     createFlipItemsContainer.querySelectorAll(
