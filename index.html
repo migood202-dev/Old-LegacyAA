@@ -880,23 +880,28 @@ createFlipPanel.classList.remove("open");
 
 if (createFlipButton) {
 
-createFlipButton.addEventListener("click", () => {
+            createFlipButton.addEventListener("click", () => {
 
-openCreateFlipPanel();
+                    window.flipPanelMode = "create";
+                            window.selectedJoinFlipId = null;
 
-});
+                                    openCreateFlipPanel();
 
-}
+                                        });
 
+                                        }
 if (emptyCreateFlipButton) {
 
-emptyCreateFlipButton.addEventListener("click", () => {
+            emptyCreateFlipButton.addEventListener("click", () => {
 
-openCreateFlipPanel();
+                    window.flipPanelMode = "create";
+                            window.selectedJoinFlipId = null;
 
-});
+                                    openCreateFlipPanel();
 
-}
+                                        });
+
+                                        }
 
 if (closeCreateFlipButton) {
 
